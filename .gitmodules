@@ -17,7 +17,9 @@
 	url = https://github.com/Tencent/rapidjson.git
 [submodule "supportlibs/libsam3"]
 	path = supportlibs/libsam3
-	url = https://github.com/i2p/libsam3.git
+	# url = https://github.com/i2p/libsam3.git
+	url = https://github.com/Passw/retroshare-i2p-libsam3.git
+	branch = my_master
 [submodule "supportlibs/jni.hpp"]
 	path = supportlibs/jni.hpp
 	url = https://github.com/RetroShare/jni.hpp.git
