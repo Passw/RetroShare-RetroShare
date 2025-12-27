@@ -1,5 +1,5 @@
 /*******************************************************************************
- * gui/feeds/ChatMsgItem.cpp                                                   *
+ * retroshare-gui/src/gui/feeds/ChatMsgItem.cpp                                *
  *                                                                             *
  * Copyright (c) 2008, Robert Fernie   <retroshare.project@gmail.com>          *
  *                                                                             *
@@ -49,7 +49,7 @@ ChatMsgItem::ChatMsgItem(FeedHolder *parent, uint32_t feedId, const RsPeerId &pe
 {
     /* Invoke the Qt Designer generated object setup routine */
     setupUi(this);
-    
+
     messageFrame->setVisible(false);
     sendButton->hide();
     cancelButton->hide();
@@ -78,7 +78,7 @@ ChatMsgItem::ChatMsgItem(FeedHolder *parent, uint32_t feedId, const RsPeerId &pe
         RsQThreadUtils::postToObject([=]()
         {
             auto fe = dynamic_cast<const RsFriendListEvent*>(e.get());
-            
+
             if(!fe || fe->mSslId != mPeerId)
                 return;
 
@@ -244,11 +244,11 @@ void ChatMsgItem::sendMessage()
 {
     /* construct a message */
     MessageInfo mi;
-    
+
     mi.title = tr("Quick Message").toUtf8().constData();
     mi.msg =   quickmsgText->toHtml().toUtf8().constData();
     mi.destinations.insert(MsgAddress(mPeerId,MsgAddress::MSG_ADDRESS_MODE_TO));
-    
+
     rsMail->MessageSend(mi);
 
     quickmsgText->clear();
